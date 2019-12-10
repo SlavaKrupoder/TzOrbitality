@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 
-public class BulletMove : MonoBehaviour
+public class RocketMove : MonoBehaviour
 {
-    public Vector3 targetPosition;
-
+    public Vector3 TargetPosition;
     public float MoveTimeSpeed = 1;
     public int Damage;
-
-    private Vector2 startPos;
-
-    float t = 0;
+    private Vector2 _startPos;
+    private float _localtimer = 0;
 
     bool onTarget;
 
     void Start()
     {
-        startPos = transform.position;
+        _startPos = transform.position;
         onTarget = false;
     }
 
@@ -23,13 +20,13 @@ public class BulletMove : MonoBehaviour
     {
         if (!onTarget)
         {
-            t += Time.deltaTime;
-            transform.position = Vector2.Lerp(startPos, targetPosition, t / MoveTimeSpeed);
-            if (t >= 1)
+            _localtimer += Time.deltaTime;
+            transform.position = Vector2.Lerp(_startPos, TargetPosition, _localtimer / MoveTimeSpeed);
+            if (_localtimer >= 1)
             {
-                transform.position = targetPosition;
+                transform.position = TargetPosition;
                 onTarget = true;
-                t = 0;
+                _localtimer = 0;
                 Destroy(gameObject);
             }
         }

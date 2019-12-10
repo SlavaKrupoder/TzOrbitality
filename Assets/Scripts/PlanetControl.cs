@@ -24,12 +24,12 @@ public class PlanetControl : MonoBehaviour
     void Update()
     {
         var x = PlanetObj.transform.localPosition.x;
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             Planet.transform.Rotate(new Vector3(0, 0, _speedRotate));
         }
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             Planet.transform.Rotate(new Vector3(0, 0, -_speedRotate));
         }

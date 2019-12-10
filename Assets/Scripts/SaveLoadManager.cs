@@ -19,7 +19,7 @@ public class SaveLoadManager : MonoBehaviour
         FileStream fs = new FileStream(_filePath, FileMode.Create);
         Save save = new Save();
         save.SavePlanets(PlanetList);
-       // save.HpPlanet = PlanetList
+        //save.HpPlanet = PlanetList
         bf.Serialize(fs, save);
         fs.Close();
     }

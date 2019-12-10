@@ -11,12 +11,12 @@ public class PlanetTrigger : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Player")
-        {
-            curTarget = null;
-            other = null;
-        }
-        if (other != null && !lockE)
+        ////if (other.tag != "Player")
+        ////{
+        ////    curTarget = null;
+        ////    other = null;
+        ////}
+        if (other != null && !lockE && other.tag == "Player")
         {
             twr.target = other.gameObject.transform;
             curTarget = other.gameObject;
@@ -32,7 +32,7 @@ public class PlanetTrigger : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other != null && other.gameObject == curTarget)
+        if (other != null || other.gameObject == curTarget)
         {
             lockE = false;
         }

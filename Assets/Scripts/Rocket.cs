@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Rocket : MonoBehaviour
 {
-    public float Speed = 0.05f;
+    public float Speed = 4;
     public Transform target;
     public PlanetAi PlanetT;
     public int Damage;
@@ -13,6 +13,7 @@ public class Rocket : MonoBehaviour
         if (target)
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, Time.deltaTime * Speed);
+
         }
         if (!target)
         {
@@ -31,13 +32,6 @@ public class Rocket : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        if (other.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
-        if (other.tag == "End")
-        {
-            Destroy(gameObject);
-        }
+        
     }
 }

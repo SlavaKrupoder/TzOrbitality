@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   Hp: 100
-  Speed: 10
-  ShoodDelay: 3
+  Speed: 3
+  ShoodDelay: 5
   RotetPosition: 0
-  Damage: 15
+  Damage: 100

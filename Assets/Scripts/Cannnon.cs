@@ -3,9 +3,10 @@
 public class Cannnon : MonoBehaviour
 {
     public GameObject currentProjectille;
+    public Camera CameraMain;
     public int Damge;
     public float shootDelay;
-    public Transform shootPostion; 
+    public Transform shootPostion;
     protected float shootDelayCounter;
     private Rigidbody myRigidbody;
 
@@ -25,8 +26,8 @@ public class Cannnon : MonoBehaviour
             if (shootDelayCounter >= shootDelay)
             {
                 var bullet = Instantiate(currentProjectille, shootPostion.position, shootPostion.rotation);
-                bullet.GetComponent<BulletMove>().targetPosition = mousePosition;
-                bullet.GetComponent<BulletMove>().Damage = Damge;
+                bullet.GetComponent<RocketMove>().TargetPosition = mousePosition;
+                bullet.GetComponent<RocketMove>().Damage = Damge;
                 shootDelayCounter = 0;
             }
         }
@@ -39,7 +40,7 @@ public class Cannnon : MonoBehaviour
     void RotateToClick()
     {
         //позиция мыши в мировых координатах
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition = CameraMain.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z += 20;
 
         // Угол между объектами

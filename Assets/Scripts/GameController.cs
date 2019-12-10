@@ -33,8 +33,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private PlanetControl Player;
 
+    void Start()
+    {
+        Resume();
+    }
+
     void Update()
     {
+        
         YourHp.text = "Your HP:" + Player.PlayeHp;
 
         Planet1Hp.text = Planet1.HpPlanet + "/200";
@@ -44,13 +50,13 @@ public class GameController : MonoBehaviour
         Planet3Hp.text = Planet3.HpPlanet + "/300";
         if (Player.PlayeHp <= 0)
         {
-            Resume();
+            Pause();
             WinLoseTab.SetActive(true);
             StatusGame.text = "You Lose!!!";
         }
         if (Planet1.HpPlanet <= 0 && Planet2.HpPlanet <= 0 && Planet3.HpPlanet <= 0)
         {
-            Resume();
+            Pause();
             WinLoseTab.SetActive(true);
             StatusGame.text = "You Win!!!";
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Planet 3
   m_EditorClassIdentifier: 
   Hp: 300
-  Speed: 1
-  ShoodDelay: 1
+  Speed: 1.5
+  ShoodDelay: 5
   RotetPosition: 0
   Damage: 30

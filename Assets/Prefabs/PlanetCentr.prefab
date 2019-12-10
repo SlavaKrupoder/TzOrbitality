@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 2107909010}
   m_Layer: 0
   m_Name: PlanetCentr
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -209,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 282967201258665895}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.2}
-  m_LocalScale: {x: 0.69, y: 0.69, z: 0.69}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 282967202445608989}
   m_Father: {fileID: 0}
@@ -228,12 +228,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RocketShootZona: {fileID: 8447276372583858902}
+  DataSavePlanet: {fileID: 11400000, guid: 62074b028816da64c8fa7c00a4f320e6, type: 2}
   Rocket: {fileID: 2135056038201457538, guid: c72186f0e96fd914d8a1db8f8fa04c4e, type: 3}
   shootElement: {fileID: 2122833722}
   LookAtObj: {fileID: 1295292897}
-  dmg: 10
   target: {fileID: 0}
-  shootDelay: 1.5
+  HpPlanet: 0
 --- !u!1 &282967202445608985
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 5516477777472173602}
   m_Layer: 0
   m_Name: Planet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -261,7 +261,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282967202445608985}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -1.27}
+  m_LocalPosition: {x: -4, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 987260150040535689}
@@ -306,7 +306,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300018, guid: a353abb41d29b01459364c390101275c, type: 3}
+  m_Sprite: {fileID: 21300020, guid: a353abb41d29b01459364c390101275c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4098112940819111166}
   m_Layer: 0
   m_Name: TargetZone
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
