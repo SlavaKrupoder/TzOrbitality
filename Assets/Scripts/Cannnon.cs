@@ -32,25 +32,10 @@ public class Cannnon : MonoBehaviour
             }
         }
     }
-
     private Vector3 mousePosition;
-
-    private float angle;
-
     void RotateToClick()
     {
-        //позиция мыши в мировых координатах
         mousePosition = CameraMain.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z += 20;
-
-        // Угол между объектами
-        angle = Vector2.Angle(Vector2.right, mousePosition - transform.position); //угол между вектором от объекта к мыше и осью х
-
-        // Мгновенное вращение
-        //transform.eulerAngles = new Vector3(0f, 0f, transform.position.y < mousePosition.y ? angle : -angle);
-
-        // Вращение с задержкой (не успеет повернуться, если в направлении клика стрелять)
-        // transform.rotation = Quaternion.RotateTowards (transform.rotation, Quaternion.Euler (0, 0, transform.position.y < mousePosition.y ? angle : -angle), RotateSpeed * Time.deltaTime);
     }
-
 }

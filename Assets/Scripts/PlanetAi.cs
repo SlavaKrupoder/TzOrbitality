@@ -59,7 +59,7 @@ public class PlanetAi : MonoBehaviour
         yield return new WaitForSeconds(_shootDelay);
         GameObject b = Instantiate(Rocket, shootElement.position, Quaternion.identity) as GameObject;
         Rocket.gameObject.GetComponent<Rocket>().Damage = DataSavePlanet.Damage;
-        b.GetComponent<Rocket>().target = target;
+        b.GetComponent<Rocket>().Target = target;
         b.GetComponent<Rocket>().PlanetT = this;
         isShoot = false;
     }

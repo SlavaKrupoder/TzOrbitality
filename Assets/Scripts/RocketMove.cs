@@ -7,25 +7,24 @@ public class RocketMove : MonoBehaviour
     public int Damage;
     private Vector2 _startPos;
     private float _localtimer = 0;
-
-    bool onTarget;
+    private bool _onTarget;
 
     void Start()
     {
         _startPos = transform.position;
-        onTarget = false;
+        _onTarget = false;
     }
 
     void Update()
     {
-        if (!onTarget)
+        if (!_onTarget)
         {
             _localtimer += Time.deltaTime;
             transform.position = Vector2.Lerp(_startPos, TargetPosition, _localtimer / MoveTimeSpeed);
             if (_localtimer >= 1)
             {
                 transform.position = TargetPosition;
-                onTarget = true;
+                _onTarget = true;
                 _localtimer = 0;
                 Destroy(gameObject);
             }

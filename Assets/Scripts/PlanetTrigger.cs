@@ -2,39 +2,33 @@
 using System.Collections;
 using TMPro;
 
-
 public class PlanetTrigger : MonoBehaviour
 {
-    public PlanetAi  twr;
-    public bool lockE;
+    public PlanetAi  PlAi;
+    private bool _lockE;
     public GameObject curTarget;
 
     void OnTriggerEnter(Collider other)
     {
-        ////if (other.tag != "Player")
-        ////{
-        ////    curTarget = null;
-        ////    other = null;
-        ////}
-        if (other != null && !lockE && other.tag == "Player")
+        if (other != null && !_lockE && other.tag == "Player")
         {
-            twr.target = other.gameObject.transform;
+            PlAi.target = other.gameObject.transform;
             curTarget = other.gameObject;
-            lockE = true;
+            _lockE = true;
         }
     }
     void Update()
     {
         if (!curTarget)
         {
-            lockE = false;
+            _lockE = false;
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other != null || other.gameObject == curTarget)
         {
-            lockE = false;
+            _lockE = false;
         }
     }
 }

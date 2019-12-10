@@ -4,13 +4,13 @@ using UnityEngine;
 internal class MagnetAll : MonoBehaviour
 {
     List<MagnetizedObject> ListMagnetticObj;
-    public float range;
-    public float strength;
+    public float Range;
+    public float Strength;
 
     public void Start()
     {
         ListMagnetticObj = new List<MagnetizedObject>();
-        gameObject.GetComponent<SphereCollider>().radius = range;
+        gameObject.GetComponent<SphereCollider>().radius = Range;
     }
 
     public void FixedUpdate()
@@ -23,33 +23,33 @@ internal class MagnetAll : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Sun") || other.gameObject.CompareTag("BRocket")|| other.gameObject.CompareTag("Player") || other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") || other.gameObject.CompareTag("Player"))
         {
             MagnetizedObject newMag = new MagnetizedObject();
-            newMag.col = other;
-            newMag.rb = other.GetComponent<Rigidbody>();
-            newMag.t = other.transform;
-            newMag.polarity = 1;
+            newMag.Col = other;
+            newMag.Rb = other.GetComponent<Rigidbody>();
+            newMag.Trans = other.transform;
+            newMag.Polarity = 1;
             ListMagnetticObj.Add(newMag);
         }
-        else if (other.gameObject.CompareTag("Repel"))
+        else if (other.gameObject.CompareTag("Sun"))
         {
             MagnetizedObject newMag = new MagnetizedObject();
-            newMag.col = other;
-            newMag.rb = other.GetComponent<Rigidbody>();
-            newMag.t = other.transform;
-            newMag.polarity = -1;
+            newMag.Col = other;
+            newMag.Rb = other.GetComponent<Rigidbody>();
+            newMag.Trans = other.transform;
+            newMag.Polarity = -1;
             ListMagnetticObj.Add(newMag);
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Attract") || other.CompareTag("Repel"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Sun"))
         {
             for (int i = 0; i < ListMagnetticObj.Count; i++)
             {
-                if (ListMagnetticObj[i].col == other)
+                if (ListMagnetticObj[i].Col == other)
                 {
                     ListMagnetticObj.RemoveAt(i);
                     break;
@@ -60,18 +60,18 @@ internal class MagnetAll : MonoBehaviour
 
     private void ApplyMagneticForce(MagnetizedObject obj)
     {
-        Vector3 rawDirection = transform.position - obj.t.position;
+        Vector3 rawDirection = transform.position - obj.Trans.position;
         float distance = rawDirection.magnitude;
-        float distanceScale = Mathf.InverseLerp(range, 0f, distance);
-        float attractionStrength = Mathf.Lerp(0f, strength, distanceScale);
-        obj.rb.AddForce(rawDirection.normalized * attractionStrength * obj.polarity, ForceMode.Force);
+        float distanceScale = Mathf.InverseLerp(Range, 0f, distance);
+        float attractionStrength = Mathf.Lerp(0f, Strength, distanceScale);
+        obj.Rb.AddForce(rawDirection.normalized * attractionStrength * obj.Polarity, ForceMode.Force);
     }
 }
 
 public class MagnetizedObject
 {
-    public Collider col;
-    public Rigidbody rb;
-    public Transform t;
-    public int polarity;
+    public Collider Col;
+    public Rigidbody Rb;
+    public Transform Trans;
+    public int Polarity;
 }

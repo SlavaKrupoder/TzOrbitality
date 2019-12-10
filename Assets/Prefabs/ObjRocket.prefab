@@ -46,8 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 40
-  target: {fileID: 0}
+  Target: {fileID: 0}
   PlanetT: {fileID: 0}
+  Damage: 0
 --- !u!65 &2135056038201457565
 BoxCollider:
   m_ObjectHideFlags: 0

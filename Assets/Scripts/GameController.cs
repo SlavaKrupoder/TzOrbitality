@@ -40,13 +40,9 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        
         YourHp.text = "Your HP:" + Player.PlayeHp;
-
         Planet1Hp.text = Planet1.HpPlanet + "/200";
-
         Planet2Hp.text = Planet2.HpPlanet + "/100";
-
         Planet3Hp.text = Planet3.HpPlanet + "/300";
         if (Player.PlayeHp <= 0)
         {
